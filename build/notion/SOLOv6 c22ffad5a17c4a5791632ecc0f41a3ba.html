@@ -1,0 +1,699 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>SOLOv6</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="c22ffad5-a17c-4a57-9163-2ecc0f41a3ba" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="SOLOv6%20c22ffad5a17c4a5791632ecc0f41a3ba/solov6%201.png"/></div><h1 class="page-title">SOLOv6</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Task</th><td><span class="selected-value select-value-color-pink">Computer Vision</span><span class="selected-value select-value-color-purple">차량 파손 탐지 서비스</span></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate"><path d="M3.29688 14.4561H12.7031C14.1797 14.4561 14.9453 13.6904 14.9453 12.2344V3.91504C14.9453 2.45215 14.1797 1.69336 12.7031 1.69336H3.29688C1.82031 1.69336 1.05469 2.45215 1.05469 3.91504V12.2344C1.05469 13.6973 1.82031 14.4561 3.29688 14.4561ZM3.27637 13.1162C2.70898 13.1162 2.39453 12.8154 2.39453 12.2207V5.9043C2.39453 5.30273 2.70898 5.00879 3.27637 5.00879H12.71C13.2842 5.00879 13.6055 5.30273 13.6055 5.9043V12.2207C13.6055 12.8154 13.2842 13.1162 12.71 13.1162H3.27637ZM6.68066 7.38086H7.08398C7.33008 7.38086 7.41211 7.30566 7.41211 7.05957V6.66309C7.41211 6.41699 7.33008 6.3418 7.08398 6.3418H6.68066C6.44141 6.3418 6.35938 6.41699 6.35938 6.66309V7.05957C6.35938 7.30566 6.44141 7.38086 6.68066 7.38086ZM8.92285 7.38086H9.31934C9.56543 7.38086 9.64746 7.30566 9.64746 7.05957V6.66309C9.64746 6.41699 9.56543 6.3418 9.31934 6.3418H8.92285C8.67676 6.3418 8.59473 6.41699 8.59473 6.66309V7.05957C8.59473 7.30566 8.67676 7.38086 8.92285 7.38086ZM11.1582 7.38086H11.5547C11.8008 7.38086 11.8828 7.30566 11.8828 7.05957V6.66309C11.8828 6.41699 11.8008 6.3418 11.5547 6.3418H11.1582C10.9121 6.3418 10.8301 6.41699 10.8301 6.66309V7.05957C10.8301 7.30566 10.9121 7.38086 11.1582 7.38086ZM4.44531 9.58203H4.84863C5.09473 9.58203 5.17676 9.50684 5.17676 9.26074V8.86426C5.17676 8.61816 5.09473 8.54297 4.84863 8.54297H4.44531C4.20605 8.54297 4.12402 8.61816 4.12402 8.86426V9.26074C4.12402 9.50684 4.20605 9.58203 4.44531 9.58203ZM6.68066 9.58203H7.08398C7.33008 9.58203 7.41211 9.50684 7.41211 9.26074V8.86426C7.41211 8.61816 7.33008 8.54297 7.08398 8.54297H6.68066C6.44141 8.54297 6.35938 8.61816 6.35938 8.86426V9.26074C6.35938 9.50684 6.44141 9.58203 6.68066 9.58203ZM8.92285 9.58203H9.31934C9.56543 9.58203 9.64746 9.50684 9.64746 9.26074V8.86426C9.64746 8.61816 9.56543 8.54297 9.31934 8.54297H8.92285C8.67676 8.54297 8.59473 8.61816 8.59473 8.86426V9.26074C8.59473 9.50684 8.67676 9.58203 8.92285 9.58203ZM11.1582 9.58203H11.5547C11.8008 9.58203 11.8828 9.50684 11.8828 9.26074V8.86426C11.8828 8.61816 11.8008 8.54297 11.5547 8.54297H11.1582C10.9121 8.54297 10.8301 8.61816 10.8301 8.86426V9.26074C10.8301 9.50684 10.9121 9.58203 11.1582 9.58203ZM4.44531 11.7832H4.84863C5.09473 11.7832 5.17676 11.708 5.17676 11.4619V11.0654C5.17676 10.8193 5.09473 10.7441 4.84863 10.7441H4.44531C4.20605 10.7441 4.12402 10.8193 4.12402 11.0654V11.4619C4.12402 11.708 4.20605 11.7832 4.44531 11.7832ZM6.68066 11.7832H7.08398C7.33008 11.7832 7.41211 11.708 7.41211 11.4619V11.0654C7.41211 10.8193 7.33008 10.7441 7.08398 10.7441H6.68066C6.44141 10.7441 6.35938 10.8193 6.35938 11.0654V11.4619C6.35938 11.708 6.44141 11.7832 6.68066 11.7832ZM8.92285 11.7832H9.31934C9.56543 11.7832 9.64746 11.708 9.64746 11.4619V11.0654C9.64746 10.8193 9.56543 10.7441 9.31934 10.7441H8.92285C8.67676 10.7441 8.59473 10.8193 8.59473 11.0654V11.4619C8.59473 11.708 8.67676 11.7832 8.92285 11.7832Z"></path></svg></span>기간</th><td><time>@2022년 4월 18일 → 2022년 6월 9일</time></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>역할</th><td><span class="selected-value select-value-color-blue">ML engineer</span><span class="selected-value select-value-color-gray">MLOps</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>소개</th><td><strong>카셰어링 업체의 주요업무중 하나인 차량의 파손 상태 모니터링 업무를 인공지능으로 자동화한 서비스입니다. </strong></td></tr></tbody></table></header><div class="page-body"><figure id="eaeeebd5-b914-45b6-ab03-8b771aaa90ee" class="image"><a href="SOLOv6%20c22ffad5a17c4a5791632ecc0f41a3ba/solov6.png"><img style="width:336px" src="SOLOv6%20c22ffad5a17c4a5791632ecc0f41a3ba/solov6.png"/></a></figure><h2 id="8db427ec-7564-43f0-a0a2-150428c14ae0" class="block-color-yellow_background">프로젝트 개요 </h2><p id="8a5b2b4c-3e5d-4ae1-809b-95f6bdfd2732" class="">✅ <strong>개발 동기</strong></p><ul id="e069cf72-f663-451c-99b0-f8fea098b26c" class="bulleted-list"><li style="list-style-type:disc">카셰어링 업체의 주요 업무중 하나는 차량의 파손 상태를 꾸준히 모니터링 하는 것이다. 이 과정에서 인력 낭비 및 긴 시간 소요로 인한 업무의 부담 발생 </li></ul><p id="f7864683-dffc-49b1-be22-990077219bac" class="">
+</p><p id="8460b365-4d03-452e-9b92-c75d26f606b9" class=""><strong>✅ 개발 아이템</strong></p><ul id="6b32a013-b180-4128-a073-2625c7605449" class="bulleted-list"><li style="list-style-type:disc">차량 파손 탐지 모델 Uccida를 개발 </li></ul><ul id="c505f090-560a-4d9d-a413-6f8beac24813" class="bulleted-list"><li style="list-style-type:disc">검수자들을 위한 AI 웹서비스 개발</li></ul><p id="dfcc19b2-320f-4bfb-952e-2abca3986f2a" class="">
+</p><p id="cfcd2fb7-ed59-433c-aa92-440427a78bc9" class=""><strong>✅ 기대 효과 </strong></p><ul id="df154f41-b3c9-463b-b63d-19c4891d4323" class="bulleted-list"><li style="list-style-type:disc">인력 및 시간 비용 절감 </li></ul><ul id="c10c743a-eab1-43e4-8056-c99879b45368" class="bulleted-list"><li style="list-style-type:disc">고객 만족도 향상 </li></ul><p id="3cfb4d35-eae4-4a15-be71-94368e9f8302" class="">
+</p><h2 id="e0902e38-cbf8-4287-83e2-5fcfc4003687" class="block-color-yellow_background">프로젝트 내용 </h2><h3 id="686cda49-725e-418d-ac10-c7591d1ddb9c" class=""><strong>✅ Model part</strong></h3><ol type="1" id="48150de4-849d-47bf-9c16-7fbde704abf5" class="numbered-list" start="1"><li><strong>sementic segmentation</strong></li></ol><ol type="1" id="8a922789-cbe4-4496-8ee4-22d4ff689645" class="numbered-list" start="2"><li><strong>dent, scratch, spacing 3개의 class로 분류 (Resnet152, Eff-Unet)</strong></li></ol><ol type="1" id="c97e9fd6-c9cb-47cb-ad7b-7d36a99a4528" class="numbered-list" start="3"><li><strong>Metric으로 IoU, Dice, Recall, precision 사용</strong></li></ol><ol type="1" id="0225ea4d-d5cf-45e2-83f6-d1f5cbbc9b37" class="numbered-list" start="4"><li><strong>semi-supervised learning의 pseudo-labeling 기법 적용 </strong></li></ol><ol type="1" id="ac5a7824-a1b8-4d85-90bb-e3a97c35a86a" class="numbered-list" start="5"><li><strong>multi-loss function</strong></li></ol><p id="eaa67a4a-c7f8-4055-b6ae-6d3aec67aacc" class="">
+</p><h3 id="113ed52d-8c73-4d2c-a980-e485e23a490e" class="">1. Sementic segmentaion </h3><ul id="7f0e264c-23cd-4ee2-af4d-9a1f7c45c54b" class="bulleted-list"><li style="list-style-type:disc">주어진 데이터가 차량의 일부 이미지와 그에 해당하는 mask로 구성 따라서 task를 segmentation으로 결정 </li></ul><p id="398fa5e5-6445-4d02-bf3e-be0463316bad" class="">
+</p><h3 id="37ef2edf-7c0b-41f8-b6d8-926d59091d13" class="">2. Resnet152, Eff-Unet</h3><ul id="2b4dcea4-d69b-410d-9a2a-13ac1261d014" class="bulleted-list"><li style="list-style-type:disc">Resnet152<ul id="5675c4b6-8d65-4caf-bcf1-e727b5e65772" class="bulleted-list"><li style="list-style-type:circle">실제 production을 고려해 본다면 소비자로부터 전달 받은 모든 이미지를 Local Damage Detection(segmentation model)에 넣는 것은 불필요하다고 판단하여 <strong>Global damage classifier (classification model, resnet152)를 사용하여 1차적인 검수를 진행하여 비용 절감 및 시간 감소</strong></li></ul><ul id="c8a0a83a-774d-4828-bac4-cf2878be7c76" class="bulleted-list"><li style="list-style-type:circle">classification model 특성상 test time 차이가 production level에서 영향이 미미하다고 판단하여 깊지만 성능이 잘나오는 resnet152로 결정</li></ul><p id="6e69de3f-748b-4149-803e-44dbc704e049" class="">
+</p></li></ul><ul id="a7925b26-0f7d-4f90-b578-4321997621d6" class="bulleted-list"><li style="list-style-type:disc">Eff-Unet<ul id="5f02e97a-6e24-48ef-9de7-5f7811e5272e" class="bulleted-list"><li style="list-style-type:circle">여러가지 sementic segmentaion model들중 컴퓨터성능과 모델 성능를 비교하여 후보를 결정 (eff-unet, deeplabv3)</li></ul><ul id="c5bf1d55-c42c-48c2-a9fc-33eb6050cd7b" class="bulleted-list"><li style="list-style-type:circle">이후 각 모델의 성능을 비교하여 최종모델로 eff-unetB4로 결정</li></ul></li></ul><p id="2d61c859-6a9b-4b57-b55d-208a6c01ae24" class="">
+</p><h3 id="5ade972f-3782-4e2c-b9b6-83b74815b5d9" class="">3. Metric </h3><ul id="7b1e8141-0817-4970-ad32-458285341348" class="bulleted-list"><li style="list-style-type:disc">차량파손모델 특성상 모델이 잘 못 판단하는 경우 파손이 안 된 차량을 파손이 됐다고 판단하는 것보다 파손이 된 차량을 파손 안 됐다고 판단하는 것이 낫다고 생각 따라서 recall을 사용</li></ul><ul id="388a8024-b265-443d-8d13-9c374d145bbb" class="bulleted-list"><li style="list-style-type:disc">하지만 recall만을 사용하기에는 모델의 성능이 저하 될 우려가 있어 주된 metric으로 recall을 사용하되 어느 정도의 IoU, dice, precision을 고려 </li></ul><p id="6a90ca10-8e35-4b65-9b2e-d0666bbaf78b" class="">
+</p><h3 id="c512818d-d2e9-4d76-bd95-3243cdff9444" class="">4. Semi-supervised learning</h3><figure id="a8c36fc6-e2e8-433a-8881-ac97dbfe9142" class="image"><a href="SOLOv6%20c22ffad5a17c4a5791632ecc0f41a3ba/Untitled.png"><img style="width:293px" src="SOLOv6%20c22ffad5a17c4a5791632ecc0f41a3ba/Untitled.png"/></a></figure><ul id="fc0ccfa4-8ba8-4bde-a36d-de07274531e8" class="bulleted-list"><li style="list-style-type:disc">주어진 이미지 데이터는 크게 2개의 데이터셋으로 구성, 즉 하나의 이미지에 대해 3개의 class mask가 존재하지 않고 2개 혹은 1개의 class mask가 존재 따라서 segmentaion model을 3개를 써야함</li></ul><ul id="df042fa4-bd77-4124-9390-bf43e2177769" class="bulleted-list"><li style="list-style-type:disc">하지만 3개의 모델을 사용하는 것은 비효율적이라 판단</li></ul><ul id="d94450eb-e986-4065-a727-9dc9274da475" class="bulleted-list"><li style="list-style-type:disc">따라서 <strong>하나의 이미지에 대해 존재하지 않는 class의 pseudo mask를 만드는 teacher model과 pseudo mask와 GT mask를 혼합하여 학습하는 student model로 분리</strong>하여 1개의 모델로 전체 데이터를 학습 가능</li></ul><ul id="cf5ebe17-294a-43c9-a681-34649221f883" class="bulleted-list"><li style="list-style-type:disc">test time에는 student model만 사용하기 때문에 production level에서 시간 감소</li></ul><p id="c457c946-2573-4e91-a36f-0379623d96af" class="">
+</p><h3 id="852dae88-3c10-4fdb-90b4-330b8c273275" class="">5. Multi-loss function </h3><p id="1c9ea8a5-8ccd-4cd1-8553-5c34558a4a35" class=""><strong>Grad-CAM loss</strong></p><figure id="7ce6e434-cf4e-4918-9a01-1f3f802584e2" class="image"><a href="SOLOv6%20c22ffad5a17c4a5791632ecc0f41a3ba/Untitled%201.png"><img style="width:593px" src="SOLOv6%20c22ffad5a17c4a5791632ecc0f41a3ba/Untitled%201.png"/></a></figure><ul id="ff2590e6-2653-4155-a73d-933e9d722f4a" class="bulleted-list"><li style="list-style-type:disc">Attention기법과 같이 파손부위를 강조하기 위해 Global Damage Detector에서 multi-label classification을 진행하여 3개의 class mask에 대한 class activation map(CAM)을 추출</li></ul><ul id="b825cb42-f573-4cf2-8965-c77187eac8a3" class="bulleted-list"><li style="list-style-type:disc">추출한 CAM과 prediction의 loss를 계산</li></ul><p id="95d5e609-0d83-41af-8f0d-aba066e6f36d" class="">
+</p><p id="c0868014-8b85-4a1e-99f6-2e573841b2f8" class=""><strong>BCE + Focal loss</strong></p><figure id="25a36275-8510-4fc5-af72-fbf93aa4ee4a" class="image"><a href="SOLOv6%20c22ffad5a17c4a5791632ecc0f41a3ba/Untitled%202.png"><img style="width:944px" src="SOLOv6%20c22ffad5a17c4a5791632ecc0f41a3ba/Untitled%202.png"/></a></figure><ul id="d5b3b48d-b6f1-4756-90cd-8f4fe24cb44c" class="bulleted-list"><li style="list-style-type:disc">각 class별 mask loss를 계산하기 위해 Binary cross entropy를 사용, 각각의 이미지에 픽셀 단위 negative와 positive간의 class imbalance를 해결하기 위해 Focal loss를 적용</li></ul><ul id="f9715cbf-6493-4e11-ab65-2afb2e44629a" class="bulleted-list"><li style="list-style-type:disc">BCE loss만을 사용하면 recall값은 높지만, 나머지 평가지표의 결과들이 전반적으로 낮음</li></ul><ul id="0f172e80-5ba5-49c9-8e47-c3fb8f799131" class="bulleted-list"><li style="list-style-type:disc">Focal loss만을 사용하면 매우 작은 loss가 발생하여 gradient의 update step이 낮게 발생 </li></ul><ul id="8686fccb-3ef9-4ef3-9df6-5dfa016db359" class="bulleted-list"><li style="list-style-type:disc">따라서 Focal loss로 easy example의 weight를 줄이고 BCE loss의 pos weight로 hard negative의 절대적인 loss를 증가시켜 학습의 반영되는 gradient를 높임</li></ul><p id="a8b41077-606a-4502-ad20-5e752b095ff9" class="">
+</p><h3 id="8f9ce281-96cd-4793-a236-5751bd6b3055" class="">Structure Overview</h3><p id="6668e9d4-5c1d-4b57-bc88-b6f423c1096e" class=""> Teacher model</p><figure id="fe333c7a-e63a-441a-b890-23c6a5622de2" class="image"><a href="SOLOv6%20c22ffad5a17c4a5791632ecc0f41a3ba/Untitled%203.png"><img style="width:876px" src="SOLOv6%20c22ffad5a17c4a5791632ecc0f41a3ba/Untitled%203.png"/></a></figure><p id="2d9c55db-5d6a-495e-a9d2-6b8c77ce1847" class="">
+</p><p id="e477702b-8272-421e-81dc-0cd699452dc9" class="">Student model </p><figure id="25b427e5-9bb9-49d7-b4df-fa8ec18e69b2" class="image"><a href="SOLOv6%20c22ffad5a17c4a5791632ecc0f41a3ba/Untitled%204.png"><img style="width:877px" src="SOLOv6%20c22ffad5a17c4a5791632ecc0f41a3ba/Untitled%204.png"/></a></figure><p id="3db161d2-31d3-4f9c-9abe-33191fa7aae9" class="">
+</p><h3 id="76e644fe-f05e-4ce2-ba36-4a0d4a63167e" class=""><strong>✅ Web part </strong></h3><p id="c88d0bb1-bb24-478a-b7f2-53b244e601b7" class="">Admin page </p><figure id="9ee289d6-65d7-410e-8d9b-d282ed70924a" class="image"><a href="SOLOv6%20c22ffad5a17c4a5791632ecc0f41a3ba/Untitled%205.png"><img style="width:2770px" src="SOLOv6%20c22ffad5a17c4a5791632ecc0f41a3ba/Untitled%205.png"/></a></figure><ul id="e1a24c0d-e1e3-4095-be32-fce87b9d2782" class="bulleted-list"><li style="list-style-type:disc">관리자가 DB에 저장된 Model의 추론 결과 데이터들을 로드하여 렌더링하는 page</li></ul><p id="ecb34370-405e-415c-9806-58b2396d4d08" class="">
+</p><p id="0cb724ab-7818-4db7-8c82-81ba46ba765d" class="">User page</p><figure id="bbeb4ef5-9f51-4ae8-8a1e-b950f834edac" class="image"><a href="SOLOv6%20c22ffad5a17c4a5791632ecc0f41a3ba/Untitled%206.png"><img style="width:1746px" src="SOLOv6%20c22ffad5a17c4a5791632ecc0f41a3ba/Untitled%206.png"/></a></figure><ul id="6e5d3adb-d51d-45d3-9d36-94fb64da3d79" class="bulleted-list"><li style="list-style-type:disc">사용자가 사용을 마치고 차량 6장 사진을 업로드하는 page </li></ul><p id="20b195de-f3b9-4ca5-8750-3633d9849e96" class="">
+</p><h3 id="c22ad687-a61f-4216-abd1-44370dce302d" class=""><strong>✅ MLOps part </strong></h3><ol type="1" id="d6f398ba-8da6-47a4-b540-23a9653945f6" class="numbered-list" start="1"><li>Torchserve </li></ol><ol type="1" id="1d35d8a2-e498-4864-a062-462a649925c0" class="numbered-list" start="2"><li>Google Cloud Function</li></ol><p id="48a1ac03-7e42-409d-bdb5-96005f0d6f4c" class="">
+</p><h3 id="9ef7add6-77dd-464e-8614-e494977f2cf8" class=""><strong>1. Torchserve</strong></h3><figure id="5ddf4798-8f0d-4a97-bb77-98cc26e32566" class="image"><a href="SOLOv6%20c22ffad5a17c4a5791632ecc0f41a3ba/Untitled%207.png"><img style="width:1000px" src="SOLOv6%20c22ffad5a17c4a5791632ecc0f41a3ba/Untitled%207.png"/></a></figure><ul id="11764704-b341-415c-b2d0-b4e49288d655" class="bulleted-list"><li style="list-style-type:disc">Google Cloud Platform의 VM위에 docker를 띄운 뒤 torchserve로 model을 serving함 </li></ul><ul id="df248ee3-b52d-4422-8b4e-8883f8730ac7" class="bulleted-list"><li style="list-style-type:disc">model server는 request를 받으면 이미지를 GDC(Global Damage Classification)를 통과 시킨 후 metric 기준에 통과한 이미지들만 LDD(Local Damage Detector)에 통과시킨다. </li></ul><ul id="84073039-433e-4721-a8c8-cb98a951dff7" class="bulleted-list"><li style="list-style-type:disc">그 후 모델에서 나온 최종 prediction을 GCS(Google Cloud Storage)에 저장</li></ul><p id="5a54136e-08ab-4b78-a707-95d054f61f3a" class="">
+</p><h3 id="eb8ecbbf-d8fd-44cf-b7b3-cfd0671b5188" class="">2. Google Cloud Function </h3><figure id="73e02f7e-5b3b-4e67-83b4-7a001c070cfc" class="image"><a href="SOLOv6%20c22ffad5a17c4a5791632ecc0f41a3ba/Untitled%208.png"><img style="width:321px" src="SOLOv6%20c22ffad5a17c4a5791632ecc0f41a3ba/Untitled%208.png"/></a></figure><ul id="1a3cbe80-fcde-4eb6-8e6b-e7ee056583db" class="bulleted-list"><li style="list-style-type:disc">사용자가 6장의 차량 이미지를 올리면 GCS(Google Cloud Storage)에 저장 되며 GSC에 request가 오면 GCF(Google Cloud Function) 트릭이 발도됨</li></ul><ul id="93e9e2b6-e320-4628-8f45-d6bba40401d7" class="bulleted-list"><li style="list-style-type:disc">GCF는 6장의 차량 이미지를 AI server에 requset를 보내고 이후 AI server에서 받은 최종 prediction을 DB에 저장함</li></ul><p id="13fffe64-e672-4778-b8bc-02d89e5e2937" class="">
+</p><h3 id="ced0a930-2615-4b3f-b9b1-38a82276c461" class="">전체 파이프라인</h3><figure id="0723ab61-69d9-4a4b-b128-ba257c84bd8b" class="image"><a href="SOLOv6%20c22ffad5a17c4a5791632ecc0f41a3ba/Untitled%209.png"><img style="width:804px" src="SOLOv6%20c22ffad5a17c4a5791632ecc0f41a3ba/Untitled%209.png"/></a></figure><p id="ea311a4c-6a9a-496d-a886-0f526300d844" class="">
+</p><h2 id="d5644328-d35b-44ff-b14f-57de1d4a364d" class="block-color-gray_background">Github &amp; Notion </h2><p id="97fa6da4-6d68-46e0-ab71-3a0431ee09b0" class="">Github</p><figure id="f9ff2675-18f0-43c1-a5eb-f4a63b5a8d2b"><a href="https://github.com/SOLOv6" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">SOLOv6</div><div class="bookmark-description">This organization has no public repositories. People This organization has no public members. You must be a member to see who&#x27;s a part of this organization. Most used topics Loading... You can&#x27;t perform that action at this time. You signed in with another tab or window. You signed out in another tab or window.</div></div><div class="bookmark-href"><img src="https://github.com/favicon.ico" class="icon bookmark-icon"/>https://github.com/SOLOv6</div></div><img src="https://avatars.githubusercontent.com/u/103980317?s=280&amp;v=4" class="bookmark-image"/></a></figure><p id="21b18b30-b5e9-4184-a5bf-0b4d46c38d5e" class="">
+</p><p id="3eb64389-c3d5-4984-9773-c7e660018e86" class="">Notion </p><figure id="45473043-4280-4d05-8374-262d5be1b505" class="link-to-page"><a href="https://www.notion.so/SOLOv6-socar-only-look-once-4547304342804d058374262d5be1b505?pvs=21"><img class="icon" src="../../%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%20%E1%84%82%E1%85%A9%E1%84%89%E1%85%A7%E1%86%AB%20ff41ba9314fd4e84947b88a9ee288a06/SOLOv6%20socar%20only%20look%20once%204547304342804d058374262d5be1b505/%EC%A0%9C%EB%AA%A9%EC%9D%84_%EC%9E%85%EB%A0%A5%ED%95%B4%EC%A3%BC%EC%84%B8%EC%9A%94_-001_(4).png"/>SOLOv6: socar only look once</a></figure><p id="4e7b843e-cd7f-4746-ae51-20645dca371d" class="">
+</p><p id="23283ded-ac37-4fb4-b2cd-a189b8fee904" class="">
+</p><p id="4aba5fdb-f76f-4d7d-9eb9-542d905a7ee1" class="">
+</p></div></article></body></html>

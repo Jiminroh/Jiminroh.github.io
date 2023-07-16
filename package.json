@@ -43,8 +43,9 @@
     ]
   },
   "devDependencies": {
+    "@iconify/icons-devicon": "^1.2.13",
     "@iconify/icons-logos": "^1.0.12",
-    "@iconify/react": "^1.1.3",
+    "@iconify/react": "^1.1.4",
     "gh-pages": "^3.1.0",
     "sass": "^1.42.1"
   }
