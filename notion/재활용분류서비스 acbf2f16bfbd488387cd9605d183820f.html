@@ -1,0 +1,684 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>재활용분류서비스</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="acbf2f16-bfbd-4883-87cd-9605d183820f" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">♻️</span></div><h1 class="page-title">재활용분류서비스</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Task</th><td><span class="selected-value select-value-color-red">Object Detectioon</span><span class="selected-value select-value-color-pink">Computer Vision</span></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate"><path d="M3.29688 14.4561H12.7031C14.1797 14.4561 14.9453 13.6904 14.9453 12.2344V3.91504C14.9453 2.45215 14.1797 1.69336 12.7031 1.69336H3.29688C1.82031 1.69336 1.05469 2.45215 1.05469 3.91504V12.2344C1.05469 13.6973 1.82031 14.4561 3.29688 14.4561ZM3.27637 13.1162C2.70898 13.1162 2.39453 12.8154 2.39453 12.2207V5.9043C2.39453 5.30273 2.70898 5.00879 3.27637 5.00879H12.71C13.2842 5.00879 13.6055 5.30273 13.6055 5.9043V12.2207C13.6055 12.8154 13.2842 13.1162 12.71 13.1162H3.27637ZM6.68066 7.38086H7.08398C7.33008 7.38086 7.41211 7.30566 7.41211 7.05957V6.66309C7.41211 6.41699 7.33008 6.3418 7.08398 6.3418H6.68066C6.44141 6.3418 6.35938 6.41699 6.35938 6.66309V7.05957C6.35938 7.30566 6.44141 7.38086 6.68066 7.38086ZM8.92285 7.38086H9.31934C9.56543 7.38086 9.64746 7.30566 9.64746 7.05957V6.66309C9.64746 6.41699 9.56543 6.3418 9.31934 6.3418H8.92285C8.67676 6.3418 8.59473 6.41699 8.59473 6.66309V7.05957C8.59473 7.30566 8.67676 7.38086 8.92285 7.38086ZM11.1582 7.38086H11.5547C11.8008 7.38086 11.8828 7.30566 11.8828 7.05957V6.66309C11.8828 6.41699 11.8008 6.3418 11.5547 6.3418H11.1582C10.9121 6.3418 10.8301 6.41699 10.8301 6.66309V7.05957C10.8301 7.30566 10.9121 7.38086 11.1582 7.38086ZM4.44531 9.58203H4.84863C5.09473 9.58203 5.17676 9.50684 5.17676 9.26074V8.86426C5.17676 8.61816 5.09473 8.54297 4.84863 8.54297H4.44531C4.20605 8.54297 4.12402 8.61816 4.12402 8.86426V9.26074C4.12402 9.50684 4.20605 9.58203 4.44531 9.58203ZM6.68066 9.58203H7.08398C7.33008 9.58203 7.41211 9.50684 7.41211 9.26074V8.86426C7.41211 8.61816 7.33008 8.54297 7.08398 8.54297H6.68066C6.44141 8.54297 6.35938 8.61816 6.35938 8.86426V9.26074C6.35938 9.50684 6.44141 9.58203 6.68066 9.58203ZM8.92285 9.58203H9.31934C9.56543 9.58203 9.64746 9.50684 9.64746 9.26074V8.86426C9.64746 8.61816 9.56543 8.54297 9.31934 8.54297H8.92285C8.67676 8.54297 8.59473 8.61816 8.59473 8.86426V9.26074C8.59473 9.50684 8.67676 9.58203 8.92285 9.58203ZM11.1582 9.58203H11.5547C11.8008 9.58203 11.8828 9.50684 11.8828 9.26074V8.86426C11.8828 8.61816 11.8008 8.54297 11.5547 8.54297H11.1582C10.9121 8.54297 10.8301 8.61816 10.8301 8.86426V9.26074C10.8301 9.50684 10.9121 9.58203 11.1582 9.58203ZM4.44531 11.7832H4.84863C5.09473 11.7832 5.17676 11.708 5.17676 11.4619V11.0654C5.17676 10.8193 5.09473 10.7441 4.84863 10.7441H4.44531C4.20605 10.7441 4.12402 10.8193 4.12402 11.0654V11.4619C4.12402 11.708 4.20605 11.7832 4.44531 11.7832ZM6.68066 11.7832H7.08398C7.33008 11.7832 7.41211 11.708 7.41211 11.4619V11.0654C7.41211 10.8193 7.33008 10.7441 7.08398 10.7441H6.68066C6.44141 10.7441 6.35938 10.8193 6.35938 11.0654V11.4619C6.35938 11.708 6.44141 11.7832 6.68066 11.7832ZM8.92285 11.7832H9.31934C9.56543 11.7832 9.64746 11.708 9.64746 11.4619V11.0654C9.64746 10.8193 9.56543 10.7441 9.31934 10.7441H8.92285C8.67676 10.7441 8.59473 10.8193 8.59473 11.0654V11.4619C8.59473 11.708 8.67676 11.7832 8.92285 11.7832Z"></path></svg></span>기간</th><td><time>@2022년 10월 1일 → 2022년 12월 12일</time></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>역할</th><td><span class="selected-value select-value-color-blue">ML engineer</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>소개</th><td><strong>인공지능의 computer vision을 도입하여 자동으로 재활용을 분류해주는 서비스입니다.</strong></td></tr></tbody></table></header><div class="page-body"><figure id="ed4a1527-a80e-46cf-8415-8f70964cd446" class="image"><a href="%E1%84%8C%E1%85%A2%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%AE%E1%86%AB%E1%84%85%E1%85%B2%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20acbf2f16bfbd488387cd9605d183820f/Untitled.png"><img style="width:734px" src="%E1%84%8C%E1%85%A2%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%AE%E1%86%AB%E1%84%85%E1%85%B2%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20acbf2f16bfbd488387cd9605d183820f/Untitled.png"/></a></figure><h2 id="f74e7116-d85a-4472-a3ce-0abb3e6431a4" class="block-color-yellow_background">프로젝트 개요 </h2><p id="f010b206-f92d-4150-81b9-f82e13d2e05d" class="">✅ <strong>개발 동기</strong></p><ul id="96952705-17aa-4037-bf70-43bc685e64f7" class="bulleted-list"><li style="list-style-type:disc">전 세계적으로 프라스틱 사용량이 증가하고 있고 최근에 covid-19의 영향으로 더 많은 재활용 쓰레기들이 발생하고있다. </li></ul><ul id="fbeb2557-9c9b-44b0-97f2-99479c9a3442" class="bulleted-list"><li style="list-style-type:disc">이렇게 많은 재활용쓰레기들을 처리하기 위해 많은 나라들이 정책을 도입하였고 그 중 독일은 무인회수기에 플라스틱, 유리, 캔 등.. 다양한 재활용쓰레기를 넣으면 돈으로 환급해주는 pfand 제도를 시행하고 있다.</li></ul><ul id="57a84a1c-027f-49b4-a99c-bdb9efce3cb2" class="bulleted-list"><li style="list-style-type:disc">이와 비슷하게 우리나라에서도 제로 서울, 제로 카페 등 많은 정책을 시행중이며 특히 독일의 pfand와 유사하게 재활용품을 수거에 포인트로 전환하는 네프론이라는 사업을 시행하고 있다.</li></ul><p id="235f229b-ea36-47f2-9402-0e55988b2e2c" class=""><strong>✅ 개발 아이템</strong></p><ul id="9b32dc14-79ab-40ee-ab25-6e9f4d142398" class="bulleted-list"><li style="list-style-type:disc">한국의 네프론과 독일의 Pfand에는 단점이 있는데 먼저 네프론은 플라스틱, 캔만 회수가 가능하다는 단점이 있고 Pfand는 인증마크가 있는 것만 회수가 가능하다. </li></ul><ul id="f7b41072-1012-4e56-a6a3-75e7e4cbe9d7" class="bulleted-list"><li style="list-style-type:disc">따라서 이 두개의 서비스를 합치고 확장해 인증마크없이 분류가 가능하며 플라스틱, 캔 뿐만아니라 다른 재활용품도 회수가능한 서비스를 제공하고자 한다.</li></ul><p id="e2430aab-15c5-4391-bf33-df58e72a8098" class=""><strong>✅ 기대 효과 </strong></p><ul id="cc10fad0-2af9-4a3a-b902-12cbd589e505" class="bulleted-list"><li style="list-style-type:disc">우리의 재활용 분류 서비스 모델은 더 많은 재활용쓰레기 회수뿐만아니라 소비자들이 경제적인 이득을 얻어 더욱 재활용쓰레기 처리에 관심을 끌 수 있도록 한다.</li></ul><p id="7f85a8ff-0128-4978-aaa4-0134c4f4762c" class="">
+</p><h2 id="76f1e439-1468-4b9f-8629-f81954f3574f" class="block-color-yellow_background">프로젝트 내용 </h2><h3 id="6191f668-b145-4880-8716-b60addb1c583" class="">1. Data part</h3><ul id="15ab0c32-97e3-406d-82a0-cbe411afe6d4" class="bulleted-list"><li style="list-style-type:disc">사용한 데이터 : TACO Dataset </li></ul><ul id="d60f1a1e-2138-4310-878d-ea4ffbfe9e07" class="bulleted-list"><li style="list-style-type:disc">데이터 설명 <ul id="3a53db0c-e7e9-4026-9205-7fab6ae36c08" class="bulleted-list"><li style="list-style-type:circle">TACO dataset은 야생 폐기물의 공개 이미지 데이터이며 열대 해변에서 런던 거리에 이르기까지 다양한 환경에서 찍은 쓰레기 데이터가 포함되었다.</li></ul><ul id="683613c1-3370-44e8-98cd-311dd72beb8f" class="bulleted-list"><li style="list-style-type:circle">Image : 1500장(train, test, validation)</li></ul><ul id="a73516b6-a99a-4bca-b277-623da6c107e0" class="bulleted-list"><li style="list-style-type:circle">Annotation : category, segmentation area, bounding box, object area</li></ul><ul id="e352c815-7cdb-4686-9e07-d5b2d8ba24e4" class="bulleted-list"><li style="list-style-type:circle">Format : COCO annotation </li></ul><ul id="dd2641ab-9d3d-4b2a-81cc-f07ed7b567cf" class="bulleted-list"><li style="list-style-type:circle">Class : super categories 28가지, sub categories 60가지 존재 </li></ul></li></ul><p id="a14909d6-85f5-4ff6-bcfe-031e5cecaf33" class="">
+</p><h3 id="4b738664-52f0-4c41-b27b-b2c1d9467e0a" class="">2. Model part </h3><p id="72d03bee-0b8d-4d2c-b7db-9a81d117fbd0" class=""><strong>✅ 연구방향 설정 </strong></p><ul id="a87b0c67-3470-4f88-b6db-9de26a32dda7" class="bulleted-list"><li style="list-style-type:disc">연구 방향을 semantic segmentation으로 진행하여 base model을 U-Net으로 설정 </li></ul><ul id="d2b13766-e9c4-4fdb-8d58-1a91b23e3eb1" class="bulleted-list"><li style="list-style-type:disc">하지만 semantic segmentation task는 픽셀 자체가 어떤 class에 속하는지만 구분가능 </li></ul><ul id="5d05379c-2dcb-4bbd-8274-ba39e04d8553" class="bulleted-list"><li style="list-style-type:disc">기획한 재활용 분류 모델은 같은 class에 속하는 재활용품 내에서도 구분이 필요하므로 적합하다고 판단하여 연구 방향을 Instance segmentation으로 변경 </li></ul><ul id="d81ca28d-2854-4e36-bd20-877ce3a0ec13" class="bulleted-list"><li style="list-style-type:disc">Instance segmentation의 기초인 Mask R-CNN을 base model로 설정</li></ul><p id="f8f4eb5b-d0d7-4bc3-b5c7-52404e4ecb13" class="">
+</p><p id="d978dc14-399c-48e3-acc6-7ba5be9b3950" class=""><strong>✅ 모델링</strong></p><ul id="8ef4c1bb-f9be-47dc-beb3-c62656ff0428" class="bulleted-list"><li style="list-style-type:disc">Torchvision의 오픈소스 라이브러리를 사용 <ul id="6ba7cb02-b9f3-4c67-bd53-d8c61d151c9e" class="bulleted-list"><li style="list-style-type:circle">Train <ul id="73bfcb26-eef0-4c71-a7a4-7e9e7492bc23" class="bulleted-list"><li style="list-style-type:square">Input : Image, Target</li></ul><ul id="4dae5094-0fce-4093-af01-0e486228150e" class="bulleted-list"><li style="list-style-type:square">Output : Classification Loss, Mask Loss, Bounding Box Regression Loss, Objectness Loss</li></ul></li></ul><ul id="33a73115-7f75-42ab-b8f4-f42d987c14f9" class="bulleted-list"><li style="list-style-type:circle">Test<ul id="d7e2019c-6a2e-453e-af5f-2da7653bddd0" class="bulleted-list"><li style="list-style-type:square">Input : Image</li></ul><ul id="f1cc289e-ea5b-4a16-ac78-3c087f773fde" class="bulleted-list"><li style="list-style-type:square">Output : Bounding Box, Confidence Score, Labels, Masks</li></ul></li></ul></li></ul><p id="3c8e5e96-5fd7-47fe-8e63-7515269b86aa" class="">
+</p><p id="ef9fae0b-f844-4b57-be09-31c0c8385b9f" class=""><strong>✅ 학습 및 평가</strong></p><ul id="e03bce8a-f48c-40d4-80c6-e07f7da5b411" class="bulleted-list"><li style="list-style-type:disc">사용 툴<ul id="79dcb04f-0e79-4ce4-bc51-eea9b0ac2aaf" class="bulleted-list"><li style="list-style-type:circle">Code : Visual Studio Code </li></ul><ul id="21f144f4-d8f9-4694-8ff8-1d288c12e1d8" class="bulleted-list"><li style="list-style-type:circle">GPU : Colab pro </li></ul><ul id="d412b48a-be39-4d8a-bf4f-624b77387447" class="bulleted-list"><li style="list-style-type:circle">Visualization : Weight and Bias</li></ul></li></ul><ul id="d7ea5ee8-435c-47f6-b540-75de252209be" class="bulleted-list"><li style="list-style-type:disc">Train 과정 <ol type="1" id="8d91caee-2289-49d2-8c7f-cc45291f8f51" class="numbered-list" start="1"><li>데이터(Image, Target)를 불러온다.</li></ol><ol type="1" id="0f91f0d8-c86d-4ea6-b8ea-104461d8d327" class="numbered-list" start="2"><li>모델(Mask R-CNN)에 데이터를 넣고 각각의 Loss들을 추출한다.</li></ol><ol type="1" id="4204ce21-c59d-40ba-8a51-64aef744b42e" class="numbered-list" start="3"><li>Loss들의 총합인 Total Loss를 구해 파라미터들을 update한다. </li></ol><ol type="1" id="8a932f0d-ac1b-449c-a28b-347180e75942" class="numbered-list" start="4"><li>학습시 각각의 Loss들을 WandB 라이브러리를 이용해 실시간으로 시각화한다. </li></ol><ol type="1" id="f8b4d1cd-1598-4a15-a57e-d840d070ec85" class="numbered-list" start="5"><li>위에 과정들을 반복하여 하이퍼파라미터 튜닝을 진행</li></ol></li></ul><p id="1d67fc96-9b7f-4c73-a8e5-c5a8c7de22fd" class="">
+</p><ul id="1bbc73cd-7c4d-4790-ad57-39147ce55b84" class="bulleted-list"><li style="list-style-type:disc">Test 과정 <ol type="1" id="817d72c9-5bce-46cd-b7bd-b91327bac1a3" class="numbered-list" start="1"><li>데이터(Image)를 불러온다. </li></ol><ol type="1" id="8dbbb582-0698-4a3c-93ce-024769611aad" class="numbered-list" start="2"><li>학습된 모델(Mask R-CNN)에 데이터를 넣고 output을 추출한다. </li></ol><ol type="1" id="5e000ab3-4df4-4c1c-ac1f-fe32d5d1a7fa" class="numbered-list" start="3"><li>추출된 output에서 bbox와 mask들을 원본 이미지에 투영시켜 시각화한다. </li></ol></li></ul><p id="fe09b0db-6359-489a-884f-1dbf4c9caa17" class="">
+</p><p id="24e4c4dc-9896-48e6-90ac-d042ba339fc6" class=""><strong>✅ 문제점과 해결책</strong></p><ol type="1" id="74ebbd9d-92c5-4a46-99a2-626afa659728" class="numbered-list" start="1"><li>Class Imbalance <figure id="642507db-79a5-45df-9542-abb187414e8f" class="image"><a href="%E1%84%8C%E1%85%A2%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%AE%E1%86%AB%E1%84%85%E1%85%B2%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20acbf2f16bfbd488387cd9605d183820f/Untitled%201.png"><img style="width:336px" src="%E1%84%8C%E1%85%A2%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%AE%E1%86%AB%E1%84%85%E1%85%B2%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20acbf2f16bfbd488387cd9605d183820f/Untitled%201.png"/></a></figure><ul id="c92a5b33-f881-4a4b-88a0-6178cf20b1de" class="bulleted-list"><li style="list-style-type:disc">저희는 TACO dataset의 60가지 sub categories만을 사용했습니다. 그런데 이 sub catecories는 위에 보이시는 표와같이 데이터 불균형문제가 심각하였습니다. </li></ul><figure id="fbde1208-7fce-4819-8655-adf52b91e3af" class="image"><a href="%E1%84%8C%E1%85%A2%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%AE%E1%86%AB%E1%84%85%E1%85%B2%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20acbf2f16bfbd488387cd9605d183820f/Untitled%202.png"><img style="width:528px" src="%E1%84%8C%E1%85%A2%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%AE%E1%86%AB%E1%84%85%E1%85%B2%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20acbf2f16bfbd488387cd9605d183820f/Untitled%202.png"/></a></figure><ul id="15abcd25-bb4b-4c38-b8ee-a8ad554bb935" class="bulleted-list"><li style="list-style-type:disc">따라서 이 60가지의 카테고리를 서비스차원을 고려하여 분리수거 여부에 따라 8가지의 카테고리로 재분류하였습니다. </li></ul><ul id="033dcac6-fd19-4b51-9b82-2bb52fb90946" class="bulleted-list"><li style="list-style-type:disc">병합은 annotation csv파일을 만들고 데이터가 불러올때 자동으로 변경되게 하였습니다. </li></ul></li></ol><p id="1a6718a1-1da5-4eba-8eaf-4b5c29c577e7" class="">
+</p><ol type="1" id="62e7d66a-56a8-4413-a3f3-12c916c96410" class="numbered-list" start="2"><li>Resource problem<ul id="78a678ba-3dfd-418f-80bf-229d52d57745" class="bulleted-list"><li style="list-style-type:disc">프로젝트 지원이 많이 되지않는 프로젝트였기 때문에 GPU, 메모리 등 하드웨어적인 부분에서 문제점들이 있었습니다. </li></ul><ol type="1" id="26d9cf5f-57b0-4017-a818-4211a31da272" class="numbered-list" start="1"><li>Fine tuning<figure id="a8bd86d9-de0a-43b7-b0ff-18ffa3965f89" class="image"><a href="%E1%84%8C%E1%85%A2%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%AE%E1%86%AB%E1%84%85%E1%85%B2%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20acbf2f16bfbd488387cd9605d183820f/Untitled%203.png"><img style="width:1106px" src="%E1%84%8C%E1%85%A2%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%AE%E1%86%AB%E1%84%85%E1%85%B2%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20acbf2f16bfbd488387cd9605d183820f/Untitled%203.png"/></a></figure><ul id="c1bfd805-6283-46cb-b7bf-a998741b3c25" class="bulleted-list"><li style="list-style-type:disc">backbone network로 imagenet으로 pretrain된 resnet50+fpn을 가져온뒤 freeze 시키고 RPN, classification head, bounding box regression head, mask head들만 학습을 진행하였습니다.</li></ul></li></ol><ol type="1" id="2cd6be9a-f71c-4525-b8ec-5f201aaf567d" class="numbered-list" start="2"><li>Resize Image resolution<figure id="d2198590-bc5f-4903-9db5-ad77c1ca5b77" class="image"><a href="%E1%84%8C%E1%85%A2%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%AE%E1%86%AB%E1%84%85%E1%85%B2%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20acbf2f16bfbd488387cd9605d183820f/Untitled%204.png"><img style="width:1064px" src="%E1%84%8C%E1%85%A2%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%AE%E1%86%AB%E1%84%85%E1%85%B2%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20acbf2f16bfbd488387cd9605d183820f/Untitled%204.png"/></a></figure><ul id="5a0157a9-de73-4946-8b98-c8003b2bdb7e" class="bulleted-list"><li style="list-style-type:disc">제한된 메모리에 데이터를 학습시키기위해 이미지 사이즈를 400x400의 크기로 줄여 학습을 진행하였습니다. </li></ul></li></ol></li></ol><p id="e17f2fb8-24b2-4618-aa96-ec242ee5fe98" class="">
+</p><h2 id="c66b5125-a35c-453b-a69f-278732aa307c" class="block-color-gray_background">Github </h2><p id="0aaa44fd-563b-457a-845f-d1849253ca14" class="">Github</p><ul id="6486ee3f-5a52-4c07-a11d-8e6ee98196f4" class="bulleted-list"><li style="list-style-type:disc"><a href="https://github.com/Jiminroh/KMU_history/tree/main/4-1.%20Deep%20Learning">https://github.com/Jiminroh/KMU_history/tree/main/4-1. Deep Learning</a></li></ul></div></article></body></html>

@@ -1,7 +1,7 @@
 {
     "basic_info": {
       "description_header": "Hi",
-      "description": "👋 I'm Davina Griss. Fictional person for preview purposes :) I'm working with newest front-end frameworks like Angular, React and Vue. What you are seeing now is portfolio template from Dorota1997. If you like this portfolio template, make sure to ⭐ the repository to make it more recognizable for other users. Thank you 💜",
+      "description": "👋 안녕하세요! 노지민입니다. 저는 Computer Vision분야에 관심이 많으며 현재 3D-Vision을 공부중입니다.",
       "section_name": {
         "about": "About me",
         "projects": "Projects",
@@ -11,107 +11,130 @@
     },
     "projects": [
       {
-        "title": "Animal Shelter",
-        "startDate": "2020",
-        "description": "The most expanded application I had opportunity to work with. I've learned many technologies and my code was reviewed by awesome curator. Application handles all adoption processess and allows to store all evidence on adopting animals from animal shelter.",
+        "title": "Recycling Classification Service",
+        "startDate": "2022.10~2022.12",
+        "description": "인공지능의 computer vision을 도입하여 자동으로 재활용을 분류해주는 서비스입니다.",
         "images": [
-          "images/portfolio/animal-shelter/p1.jpg",
-          "images/portfolio/animal-shelter/p2.jpg"
+          "images/portfolio/recycle/recycle.png",
+          "images/portfolio/recycle/data.png",
+          "images/portfolio/recycle/data2.png",
+          "images/portfolio/recycle/architecture.png",
+          "images/portfolio/recycle/resize.png"
         ],
-        "url": "",
+        "url": "./notion/재활용분류서비스 acbf2f16bfbd488387cd9605d183820f.html",
         "technologies": [
           {
-            "class": "devicon-angularjs-plain",
-            "name": "Angular"
+            "class": "devicon-python-plain",
+            "name": "Python"
           },
           {
-            "class": "devicon-typescript-plain",
-            "name": "TypeScript"
-          },
-          {
-            "class": "devicon-csharp-plain",
-            "name": "C#"
+            "class": "devicon-pytorch-original",
+            "name": "Pytorch"
           }
         ]
       },
       {
-        "title": "Photography",
-        "startDate": "2018",
-        "description": "Personal project for study subject. I was responsible for testing photography application that optimizes images with popular algorithms used by graphic editors like Pixlr or Adobe Photoshop. I've earned A grade :)",
+        "title": "Danger Detection Service",
+        "startDate": "2022.11~2022.12",
+        "description": "객체 검출 기법을 활용한 현장 작업자 위험 상황 인지 알고리즘 개발 프로제트입니다.",
         "images": [
-          "images/portfolio/photography/p1.jpg",
-          "images/portfolio/photography/p2.jpg"
+          "images/portfolio/danger/danger.png",
+          "images/portfolio/danger/sample.png",
+          "images/portfolio/danger/annotation.png"
         ],
-        "url": "https://github.com",
+        "url": "./notion/위험감지서비스 62ed742e47d24c6a8b356fec485efd34.html",
         "technologies": [
           {
-            "class": "devicon-react-original",
-            "name": "React"
+            "class": "devicon-python-plain",
+            "name": "Python"
           },
           {
-            "class": "devicon-javascript-plain",
-            "name": "JavaScript"
+            "class": "devicon-pytorch-original",
+            "name": "Pytorch"
           }
         ]
       },
       {
-        "title": "3D Object Viewer",
-        "startDate": "2015",
-        "description": "One of the first apps I was working on my internship. I had to develop front-end implementation for app that shows 3D models of known buildings. This was also my first project in Angular framework. I've learned a lot!",
+        "title": "SOLOv6 (Car Damaged Detection Service)",
+        "startDate": "2022.04~2022.06",
+        "description": "카셰어링 업체의 주요업무중 하나인 차량의 파손 상태 모니터링 업무를 인공지능으로 자동화한 서비스입니다.",
         "images": [
-          "images/portfolio/adventure/p1.jpg",
-          "images/portfolio/adventure/p2.jpg"
+          "images/portfolio/solov6/solov6.png",
+          "images/portfolio/solov6/teacher.png",
+          "images/portfolio/solov6/student.png",
+          "images/portfolio/solov6/focal.png",
+          "images/portfolio/solov6/architecture.png"
         ],
-        "url": "https://github.com",
+        "url": "./notion/SOLOv6 c22ffad5a17c4a5791632ecc0f41a3ba.html",
         "technologies": [
           {
-            "class": "devicon-angularjs-plain",
-            "name": "Angular"
+            "class": "devicon-python-plain",
+            "name": "Python"
           },
           {
-            "class": "devicon-typescript-plain",
-            "name": "TypeScript"
+            "class": "devicon-pytorch-original",
+            "name": "Pytorch"
           },
           {
-            "class": "devicon-csharp-plain",
-            "name": "C#"
+            "class": "devicon-googlecloud-plain",
+            "name": "GCP,GFS"
+          }
+        ]
+      },
+      {
+        "title": "Netflix Analysis",
+        "startDate": "2022.03~2022.03",
+        "description": "OTT서비스의 가장 큰 플렛폼인 Netfilx를 통해 문화트렌드를 분석하는 서비스입니다.",
+        "images": [
+          "images/portfolio/netflix/netflix.png",
+          "images/portfolio/netflix/eda1.png",
+          "images/portfolio/netflix/eda2.png",
+          "images/portfolio/netflix/eda3.png",
+          "images/portfolio/netflix/eda4.png",
+          "images/portfolio/netflix/eda5.png"
+        ],
+        "url": "./notion/영화보조 fe172e136a50474487544c99f776fe38.html",
+        "technologies": [
+          {
+            "class": "devicon-python-plain",
+            "name": "Python"
+          },
+          {
+            "class": "devicon-pytorch-original",
+            "name": "Pytorch"
           }
         ]
       }
     ],
     "experience": [
       {
-        "company": "DefOpenSource",
-        "title": "Front-End Developer",
-        "years": "10.2019 - present",
+        "company": "MODULabs",
+        "title": "SOCAR Campus 교육생",
+        "years": "12.2021 - 06.2022",
         "mainTech": [
-          "Angular 8/9/10"
+          "Arifical Inteligence"
         ],
         "technologies": [
-          "REST API",
-          "RxJS",
-          "JavaScript",
-          "Bootstrap",
-          "MDBootstrap",
-          "EF Core",
-          ".NET Core",
-          "SignalR",
-          "Angular Material"
+          "Pytorch",
+          "Tensorflow",
+          "Keras",
+          "Deep Learning",
+          "Computer Vision"
         ]
       },
       {
-        "company": "Serros Solutions",
-        "title": "Intern",
-        "years": "01.2018 - 09.2019",
+        "company": "Kookmin University",
+        "title": "B.S. in Software",
+        "years": "03.2017 - 08.2023",
         "mainTech": [
-          "Angular 7/8"
+          "Computer Science"
         ],
         "technologies": [
-          "RxJS",
-          "Django",
-          "PHP",
-          "JavaScript",
-          "DHTMLX Gantt"
+          "Python",
+          "JAVA",
+          "C++",
+          "OS",
+          "CS"
         ]
       }
     ]
