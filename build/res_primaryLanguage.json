@@ -21,7 +21,7 @@
           "images/portfolio/recycle/architecture.png",
           "images/portfolio/recycle/resize.png"
         ],
-        "url": "./notion/재활용분류서비스 acbf2f16bfbd488387cd9605d183820f.html",
+        "url": "./notion/Recycling Classification Service acbf2f16bfbd488387cd9605d183820f.html",
         "technologies": [
           {
             "class": "devicon-python-plain",
@@ -42,7 +42,7 @@
           "images/portfolio/danger/sample.png",
           "images/portfolio/danger/annotation.png"
         ],
-        "url": "./notion/위험감지서비스 62ed742e47d24c6a8b356fec485efd34.html",
+        "url": "./notion/Danger Detection Service 62ed742e47d24c6a8b356fec485efd34.html",
         "technologies": [
           {
             "class": "devicon-python-plain",
@@ -93,7 +93,7 @@
           "images/portfolio/netflix/eda4.png",
           "images/portfolio/netflix/eda5.png"
         ],
-        "url": "./notion/영화보조 fe172e136a50474487544c99f776fe38.html",
+        "url": "./notion/Analysis Netflix fe172e136a50474487544c99f776fe38.html",
         "technologies": [
           {
             "class": "devicon-python-plain",
