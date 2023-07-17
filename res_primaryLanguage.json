@@ -108,6 +108,20 @@
     ],
     "experience": [
       {
+        "company": "HCI Labs at Kookmin Univ",
+        "title": "Undergraded Student",
+        "years": "08.2022 - 12.2022",
+        "mainTech": [
+          "Object Tracking"
+        ],
+        "technologies": [
+          "Object Detection",
+          "Swin-Transformer",
+          "DINO",
+          "Self-supervised learning"
+        ]
+      },
+      {
         "company": "MODULabs",
         "title": "SOCAR Campus 교육생",
         "years": "12.2021 - 06.2022",

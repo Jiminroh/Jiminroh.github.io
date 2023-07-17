@@ -14,15 +14,26 @@ body {
 	margin: 0;
 	padding: 0;
 }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #383a3c;
+    --text: #dbdbdb;
+    --heading-text: #fff;
+    --anchor-text: #0076d1;
+    --code-background: #161f27;
+    --code-text: #ffbe85;
+  }
+}
 @media only screen {
 	body {
 		margin: 2em auto;
 		max-width: 900px;
-		color: rgb(55, 53, 47);
+		color: rgb(249, 247, 245);
 	}
 }
 
 body {
+	background: var(--background);
 	line-height: 1.5;
 	white-space: pre-wrap;
 }
@@ -38,8 +49,16 @@ a.visited {
 	color: #444;
 }
 
+
+h2 {
+	color: #000000b0;
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
 h1,
-h2,
 h3 {
 	letter-spacing: -0.01em;
 	line-height: 1.2;
@@ -70,7 +89,7 @@ h3 {
 }
 
 .source {
-	border: 1px solid #ddd;
+	border: 1px solid #f3efef;
 	border-radius: 3px;
 	padding: 1.5em;
 	word-break: break-all;
@@ -107,7 +126,7 @@ hr {
 	height: 1px;
 	visibility: visible;
 	border: none;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+	border-bottom: 1px solid rgba(234, 233, 230, 0.09);
 }
 
 img {
@@ -168,13 +187,14 @@ img {
 .table_of_contents-link {
 	text-decoration: none;
 	opacity: 0.7;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+	border-bottom: 1px solid rgb(250, 250, 247);
 }
 
 table,
 th,
 td {
-	border: 1px solid rgba(55, 53, 47, 0.09);
+	color: var(--text);
+	border: 1px solid #383a3c;;
 	border-collapse: collapse;
 }
 
@@ -193,11 +213,12 @@ td {
 }
 
 th {
-	color: rgba(55, 53, 47, 0.6);
+	color: rgba(244, 243, 238, 0.904);
 }
 
 ol,
 ul {
+	color: var(--text);
 	margin: 0;
 	margin-block-start: 0.6em;
 	margin-block-end: 0.6em;
@@ -268,6 +289,7 @@ ol > li {
 }
 
 .selected-value {
+	color: #000;
 	display: inline-block;
 	padding: 0 0.5em;
 	background: rgba(206, 205, 202, 0.5);
@@ -303,7 +325,7 @@ ol > li {
 }
 
 .simple-table-header-color {
-	background: rgb(247, 246, 243);
+	background: rgb(235, 229, 229);
 	color: black;
 }
 .simple-table-header {
@@ -433,7 +455,7 @@ blockquote {
 	font-size: 1.25em;
 	margin: 1em 0;
 	padding-left: 1em;
-	border-left: 3px solid rgb(55, 53, 47);
+	border-left: 3px solid rgb(249, 246, 239);
 }
 
 .bookmark {
@@ -476,7 +498,7 @@ blockquote {
 }
 
 .bookmark-description {
-	color: rgba(55, 53, 47, 0.6);
+	color: rgba(242, 240, 234, 0.6);
 	font-size: 0.75em;
 	overflow: hidden;
 	max-height: 4.5em;
