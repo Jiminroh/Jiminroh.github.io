@@ -7,11 +7,6 @@
           "name": "github",
           "url": "https://github.com/Jiminroh",
           "class": "fab fa-github"
-        },
-        {
-          "name": "instagram",
-          "url": "https://www.instagram.com",
-          "class": "fab fa-instagram"
         }
       ],
       "image": "my.jpeg"
