@@ -1,12 +1,17 @@
 {
     "basic_info": {
       "name": "JIMIN Roh",
-      "titles": [ "AI Researcher", "ML Engineer", "3D-Vision" ],
+      "titles": [ "3D-Vision", "3D-Reconstruction", "3D-Perception" ],
       "social": [
         {
           "name": "github",
           "url": "https://github.com/Jiminroh",
           "class": "fab fa-github"
+        },
+        {
+          "name": "notion",
+          "url": "https://github.com/Jiminroh",
+          "class": "./public/images/Notion_app_logo.png"
         }
       ],
       "image": "my.jpeg"
