@@ -108,6 +108,17 @@
     ],
     "experience": [
       {
+        "company": "VDS Labs at Sogang Univ",
+        "title": "Internship",
+        "years": "09.2023 ~ ",
+        "mainTech": [
+          "3D Vision"
+        ],
+        "technologies": [
+          ""
+        ]
+      },
+      {
         "company": "HCI Labs at Kookmin Univ",
         "title": "Undergraded Student",
         "years": "08.2022 - 12.2022",
