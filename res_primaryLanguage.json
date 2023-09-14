@@ -110,12 +110,12 @@
       {
         "company": "VDS Labs at Sogang Univ",
         "title": "Internship",
-        "years": "09.2023 ~ ",
+        "years": "09.2023 ~ 02.2024",
         "mainTech": [
           "3D Vision"
         ],
         "technologies": [
-          ""
+          "NeRF", "Anomaly Detection"
         ]
       },
       {
